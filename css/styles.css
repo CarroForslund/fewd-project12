@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css?family=Arima+Madurai:400,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  color: #222;
+  background: #f7f5f0;
+}
+
+h1, h2, h3 {
+  font-family: 'Arima Madurai', cursive;
+  font-weight: 700;
+  margin: .2em;
+}
+
+h3 {
+  color: #D60866;
+}
+
+h4 {
+  color: #818181;
+}
+
+p {
+  margin: 0 .5em 1em;
+  line-height: 1.5em;
+  color: #818181;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  background: url('../img/champagne.jpg') no-repeat center ;
+  background-size: cover;
+  overflow: hidden;
+  height: auto;
+  text-align: center;
+}
+
+header nav ul {
+  padding: 0;
+  margin: 0;
+  font-family: 'Arima Madurai', cursive;
+  font-weight: 700;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+header nav ul li a {
+  display: block;
+  width: 100%;
+  padding: .5em;
+  color: white;
+  background-color: #68CACE;
+  border-top: 1px solid white;
+  transition: .15s;
+}
+
+header nav ul li a:hover,
+header nav ul li .current {
+  background-color: #4B8A8D;
+}
+
+header .profile-picture {
+  display: inline-block;
+  border: 3px white solid;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin: 20px auto;
+  transition: all .5s;
+}
+
+header .profile-picture:hover {
+  transform: scale(1.2) rotate(-5deg);
+}
+
+header .tag {
+  background-color: #efefef;
+  opacity: .9;
+  color: black;
+  padding: 0 10px ;
+  border-radius: 5px;
+  display: table;
+  margin: 0 auto 20px;
+}
+
+main {
+  padding: 1em;
+}
+
+.filter {
+  display: inline-block;
+  border-radius: 20px;
+  width: 80px;
+  background-color: #E48C95;
+  color: white;
+  margin: 0em .2em 1em .2em;
+  padding: .5em;
+}
+
+.filter-active {
+  background-color: #F45E73;
+}
+
+.project {
+  margin-bottom: 1em;
+}
+
+.project-image {
+  max-width: 100%;
+}
+
+footer {
+  background-color: #e0d8d1;
+  width: 100%;
+  margin-top: 2em;
+  padding: 2em;
+}
+
+footer p {
+  color: white;
+  margin: .5em;
+}
+
+footer svg {
+  fill: white;
+  height: 30px;
+  margin: .5em .8em;
+  transition: .25s;
+}
+
+footer svg:hover {
+  fill: #F45E73;
+}
+
+/* TABLET SIZE */
+@media (min-width: 768px) {
+
+}
+
+/* DESKTOP SIZE */
+@media (min-width: 1024px) {
+
+}
