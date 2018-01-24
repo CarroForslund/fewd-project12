@@ -264,10 +264,75 @@ function loadContent(clickedLink){
     projectsTitle.innerHTML = "Projects";
     main.appendChild(projectsTitle);
 
+    const filterSection = document.createElement('div');
+    filterSection.className = 'filter-section';
+    main.appendChild(filterSection);
+
+    const filterTitle = document.createElement('h4');
+    filterTitle.innerHTML = 'Filter';
+    filterSection.appendChild(filterTitle);
+
+    const filterAll = document.createElement('div');
+    filterAll.innerHTML = 'All';
+    filterAll.id = 'filter-all';
+    filterAll.className = 'filter';
+    filterAll.classList.add('filter-active');
+    filterSection.appendChild(filterAll);
+
+    const filterWeb = document.createElement('div');
+    filterWeb.innerHTML = 'Web';
+    filterWeb.id = 'filter-web';
+    filterWeb.className = 'filter';
+    filterSection.appendChild(filterWeb);
+
+    const filterDesign = document.createElement('div');
+    filterDesign.innerHTML = 'Design';
+    filterDesign.id = 'filter-design';
+    filterDesign.className = 'filter';
+    filterSection.appendChild(filterDesign);
+
+    const filters = document.getElementsByClassName('filter');
+    for (let i = 0; i < filters.length; i++){
+
+      //Set active filter
+      filters[i].addEventListener('click', function(){
+        for (let j = 0; j < filters.length; j++){
+          filters[j].classList.remove('filter-active');
+        }
+        filters[i].classList.add('filter-active');
+
+        //Display projects matching the chosen filter
+        const projectDivs = document.getElementsByClassName('project');
+        console.log('filter', filters[i].id);
+        for (let k = 0; k < projectDivs.length; k++){
+          console.log('projectDiv', projectDivs[k]);
+
+          if (filters[i].id === 'filter-all'){
+            projectDivs[k].setAttribute('style', 'display: block');
+          }
+          else if (projectDivs[k].classList.contains('web-project') && filters[i].id === 'filter-web'){
+            projectDivs[k].setAttribute('style', 'display: block');
+          }
+          else if (projectDivs[k].classList.contains('design-project') && filters[i].id === 'filter-design'){
+            projectDivs[k].setAttribute('style', 'display: block');
+          } else {
+            projectDivs[k].setAttribute('style', 'display: none');
+          }
+        }
+
+      });
+    }
+
     projects.forEach( function (project){
 
       const projectDiv = document.createElement('div');
       projectDiv.className = "project";
+      if (project.tag ===  "web"){
+        projectDiv.classList.add('web-project');
+      }
+      if (project.tag ===  "design"){
+        projectDiv.classList.add('design-project');
+      }
       projectDiv.addEventListener('click', function(){
         console.log('open modal window');
         const overlay = document.createElement('div');
