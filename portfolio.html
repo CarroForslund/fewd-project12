@@ -26,42 +26,146 @@
       <h2>Portfolio</h2>
       <div class="filter-section">
         <h4><strong>Filter</strong></h4>
-        <div class="filter filter-active" id="filter-web">Web</div>
+        <div class="filter filter-active" id="filter-all">All</div>
+        <div class="filter" id="filter-web">Web</div>
         <div class="filter" id="filter-design">Design</div>
-        <div class="filter" id="filter-photo">Photo</div>
       </div>
-      <div class="project fewd">
-        <h3>Web App Dashboard</h3>
-        <img class="project-image" src="img/portfolio/web-app-dashboard.jpg" alt="Responsive Web App Dashboard Displayed on Apple Devices"/>
+
+      <div class="project-container">
+
+        <!-- WEB -->
+
+        <div class="project fewd">
+          <h3>Web App Dashboard</h3>
+          <img class="project-image" src="img/portfolio/web-app-dashboard.jpg" alt="Responsive Web App Dashboard Displayed on Apple Devices"/>
+          <div class="project-description">
+            <h4>Project Description</h4>
+            <p>
+              In this project, I built a web dashboard with JavaScript-driven charts and graphs.
+              I also saved settings in the local storage so it would remain after re-loading the page.
+            </p>
+            <a href="https://github.com/CarroForslund/fewd-project9" target="_blank">Source Code</a>
+            <a href="#" target="_blank">Demo</a>
+          </div>
+        </div>
+
+        <div class="project fewd">
+          <h3>Employee Directory</h3>
+          <img class="project-image" src="img/portfolio/employee-directory.jpg" alt="Responsive Employee Directory Displayed on Apple Devices"/>
+          <div class="project-description">
+            <h4>Project Description</h4>
+            <p>
+              In this project, I used the Random User Generator API (https://randomuser.me/)
+              to grab information for 12 random “employees,” and used that data to build a
+              prototype for an Awesome Startup employee directory. The app requests a JSON
+              object from the API and parse the data so that 12 employees are listed in a
+              grid with their thumbnail image, full name, email, and location. Clicking the
+              employee’s image or name will open a modal window with more detailed information,
+              such as the employee’s birthday and address.
+            </p>
+            <a href="https://github.com/CarroForslund/fewd-project10" target="_blank">Source Code</a>
+            <a href="#" target="_blank">Demo</a>
+          </div>
+        </div>
+
+        <div class="project fewd">
+          <h3>SVG Animations</h3>
+          <img class="project-image" src="img/portfolio/svg-animations.jpg" alt="Responsive Corgi Website Displayed on Apple Devices"/>
+          <div class="project-description">
+            <h4>Project Description</h4>
+            <p>
+              In this project, I used SVGs to spruce up and add a bit of character to
+              a website. I was given a mockup, some basic HTML and CSS, and matching SVG files.
+              I learned how to create SVG symbols and to manipulate SVGs depending of media queries.
+            </p>
+            <a href="https://github.com/CarroForslund/fewd-project8" target="_blank">Source Code</a>
+            <a href="#" target="_blank">Demo</a>
+          </div>
+        </div>
+
+        <div class="project fewd">
+          <h3>Wheel of Success Game</h3>
+          <img class="project-image" src="img/portfolio/wheel-of-success.jpg" alt="Wheel of Success Displayed on iMac and MacBook Air"/>
+          <div class="project-description">
+            <h4>Project Description</h4>
+            <p>
+              In this project, I created a browser version of “Wheel of Success”,
+              a word guessing game where players will click letters from an onscreen
+              keyboard to try to guess a random phrase.
+            </p>
+            <a href="https://github.com/CarroForslund/fewd-project7" target="_blank">Source Code</a>
+            <a href="#" target="_blank">Demo</a>
+          </div>
+        </div>
+
+        <div class="project fewd">
+          <h3>Interactive Video Player</h3>
+          <img class="project-image" src="img/portfolio/interactive-video-player.jpg" alt="Responsive Interactive Video Player Displayed on Apple Devices"/>
+          <div class="project-description">
+            <h4>Project Description</h4>
+            <p>
+              In this project, I built an HTML5 video player using JavaScript and the
+              HTML5 Video API. Using the supplied mockups, video files, and transcript,
+              I built an interactive video player that synchronizes a video and its
+              transcript. The transcript highlight as the video progresses. When a user
+              clicks any part of the transcript it takes them to the appropriate place in the video.
+            </p>
+            <a href="https://github.com/CarroForslund/fewd-project6" target="_blank">Source Code</a>
+            <a href="#" target="_blank">Demo</a>
+          </div>
+        </div>
+
+        <div class="project fewd">
+          <h3>Web Style Guide</h3>
+          <img class="project-image" src="img/portfolio/web-style-guide.jpg" alt="Responsive Web Style Guide Displayed on Apple Devices"/>
+          <div class="project-description">
+            <h4>Project Description</h4>
+            <p>
+              In this project, I was provided an index.html file with a set of class
+              names already defined. I was responsible for creating rules to style
+              the web page using each of those class names. I create a sass project
+              to do this, using partials, variables, extends, and mixins to apply the
+              styles and classes to the style guide page.
+            </p>
+            <a href="https://github.com/CarroForslund/fewd-project5" target="_blank">Source Code</a>
+            <a href="#" target="_blank">Demo</a>
+          </div>
+        </div>
+
+        <div class="project fewd">
+          <h3>Interactive Photo Gallery</h3>
+          <img class="project-image" src="img/portfolio/interactive-photo-gallery.jpg" alt="Responsive Interactive Photo Gallery Displayed on Apple Devices"/>
+          <div class="project-description">
+            <h4>Project Description</h4>
+            <p>
+              In this project I created an interactive photo gallery using JavaScript and jQuery.
+              Thumbnails and photos were provided with descriptions. At the top of the page I
+              implemented a search function that will hide and show images depending on user input.
+              When the user clicks on a thumbnail, the photo will display in a lightbox.
+            </p>
+            <a href="https://github.com/CarroForslund/fewd-project4" target="_blank">Source Code</a>
+            <a href="#" target="_blank">Demo</a>
+          </div>
+        </div>
+
+        <div class="project fewd">
+          <h3>Online Registration Form</h3>
+          <img class="project-image" src="img/portfolio/online-registration-form.jpg" alt="Responsive Online Registration Form Displayed on Apple Devices"/>
+          <div class="project-description">
+            <h4>Project Description</h4>
+            <p>
+              In this project I built a responsive, mobile-friendly registration form
+              using a wide variety of HTML form input types and attributes. Using
+              the supplied mockup files, I built a mobile and desktop version of the
+              form using media queries, and a "mobile-first" approach.
+            </p>
+            <a href="https://github.com/CarroForslund/fewd-project3" target="_blank">Source Code</a>
+            <a href="#" target="_blank">Demo</a>
+          </div>
+        </div>
+
       </div>
-      <div class="project fewd">
-        <h3>Employee Directory</h3>
-        <img class="project-image" src="img/portfolio/employee-directory.jpg" alt="Responsive Employee Directory Displayed on Apple Devices"/>
-      </div>
-      <div class="project fewd">
-        <h3>SVG Animations</h3>
-        <img class="project-image" src="img/portfolio/svg-animations.jpg" alt="Responsive Corgi Website Displayed on Apple Devices"/>
-      </div>
-      <div class="project fewd">
-        <h3>Wheel of Success Game</h3>
-        <img class="project-image" src="img/portfolio/wheel-of-success.jpg" alt="Wheel of Success Displayed on iMac and MacBook Air"/>
-      </div>
-      <div class="project fewd">
-        <h3>Interactive Video Player</h3>
-        <img class="project-image" src="img/portfolio/interactive-video-player.jpg" alt="Responsive Interactive Video Player Displayed on Apple Devices"/>
-      </div>
-      <div class="project fewd">
-        <h3>Web Style Guide</h3>
-        <img class="project-image" src="img/portfolio/web-style-guide.jpg" alt="Responsive Web Style Guide Displayed on Apple Devices"/>
-      </div>
-      <div class="project fewd">
-        <h3>Interactive Photo Gallery</h3>
-        <img class="project-image" src="img/portfolio/interactive-photo-gallery.jpg" alt="Responsive Interactive Photo Gallery Displayed on Apple Devices"/>
-      </div>
-      <div class="project fewd">
-        <h3>Online Registration Form</h3>
-        <img class="project-image" src="img/portfolio/online-registration-form.jpg" alt="Responsive Online Registration Form Displayed on Apple Devices"/>
-      </div>
+
     </main>
 
     <footer>
