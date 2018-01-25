@@ -36,17 +36,17 @@ const about = `
     I’m a native Swedish speaker and fluent in English.
   </p>
 
-  <h3>What I do offline</h3>
-  <p>
-    When I’m not by the computer I like to spend my time traveling, scuba diving,
-    horse riding, hiking, and meet up with inspiring and kind people.
-  </p>
-
   <h3>What I’m looking for</h3>
   <p>
     I am looking for a company who wants a long term collaboration. I am very
     flexible according to location, but preferably it’s a remote friendly job.
     I’m open for an employment or a freelance solution.
+  </p>
+
+  <h3>What I do offline</h3>
+  <p>
+    When I’m not by the computer I like to spend my time traveling, scuba diving,
+    horse riding, hiking, and meet up with inspiring and kind people.
   </p>`;
 const projects = [
     {
@@ -326,6 +326,7 @@ function loadContent(clickedLink){
     projects.forEach( function (project){
 
       const projectDiv = document.createElement('div');
+
       projectDiv.className = "project";
       if (project.tag ===  "web"){
         projectDiv.classList.add('web-project');
@@ -333,8 +334,9 @@ function loadContent(clickedLink){
       if (project.tag ===  "design"){
         projectDiv.classList.add('design-project');
       }
+      //Add click functionality to project to read more
       projectDiv.addEventListener('click', function(){
-        console.log('open modal window');
+
         const overlay = document.createElement('div');
         overlay.id = 'overlay';
         body.appendChild(overlay);
@@ -348,8 +350,68 @@ function loadContent(clickedLink){
             overlay.remove();
           }
         });
+
+        // Project Card
+        const projectCard = document.createElement('div');
+        projectCard.className = 'project-card';
+        overlay.appendChild(projectCard);
+
+        //Close button
+        const close = document.createElement('p');
+        close.className = 'close-button';
+        close.innerHTML = '&times;';
+        close.addEventListener('click', function(){
+          overlay.remove();
+        });
+        projectCard.appendChild(close);
+
+        //Project's Details
+        const projectName = document.createElement('h3');
+        projectName.innerHTML = project.name;
+        projectCard.appendChild(projectName);
+
+        const projectImage = document.createElement('img');
+        projectImage.src = project.image;
+        projectImage.alt = project.name;
+        projectImage.className = "project-image";
+        projectCard.appendChild(projectImage);
+
+        const skills = document.createElement('div');
+        skills.className = 'skills';
+        projectCard.appendChild(skills);
+        for (let i = 0; i < project.skills.length; i++){
+          const skill = document.createElement('span');
+          skill.className = 'skill'
+          skill.innerHTML = project.skills[i];
+          skills.appendChild(skill);
+        }
+
+        const projectDescription = document.createElement('div');
+        projectDescription.className = "project-description";
+        projectCard.appendChild(projectDescription);
+
+        const descriptionTitle = document.createElement('h4');
+        descriptionTitle.innerHTML = "Project Description";
+        projectDescription.appendChild(descriptionTitle);
+
+        const description = document.createElement('p');
+        description.innerHTML = project.description;
+        projectDescription.appendChild(description);
+
+        // //Create back and forvard buttons
+        // const previous = document.createElement('span');
+        // previous.className = 'browse-button';
+        // previous.innerHTML = '&lsaquo;'
+        // projectCard.appendChild(previous);
+        //
+        // const next = document.createElement('span');
+        // next.className = 'browse-button';
+        // next.innerHTML = '&rsaquo;'
+        // projectCard.appendChild(next);
+
       });
 
+      //Project Overview
       const projectName = document.createElement('h3');
       projectName.innerHTML = project.name;
       projectDiv.appendChild(projectName);
@@ -360,18 +422,6 @@ function loadContent(clickedLink){
       projectImage.className = "project-image";
       projectDiv.appendChild(projectImage);
 
-      const projectDescription = document.createElement('div');
-      projectDescription.className = "project-description";
-      projectDiv.appendChild(projectDescription);
-
-      const descriptionTitle = document.createElement('h4');
-      descriptionTitle.innerHTML = "Project Description";
-      projectDescription.appendChild(descriptionTitle);
-
-      const description = document.createElement('p');
-      description.innerHTML = project.description;
-      projectDescription.appendChild(description);
-
       main.appendChild(projectDiv);
     });
   }
@@ -380,59 +430,4 @@ function loadContent(clickedLink){
   }
 }
 
-function displayProject(projectsArray){
-
-}
-
 loadPage();
-
-// function addLinksToProjects(){
-//   const projects = document.getElementsByClassName('project');
-//   console.log(projects);
-//   for (let i = 0; i < projects.length; i++){
-//     projects[i].id = 'project-1' + i;
-//     projects[i].addEventListener('click', (e) => {
-//       console.log('click');
-//       displayProject(projects[i].id);
-//     });
-//   }
-// }
-//
-// function displayProject(projectId){
-//
-//   //Variables
-//   const body = document.body;
-//   const overlay = document.createElement('div');
-//   const project = document.getElementById(projectId);
-//   const projectCard = document.createElement('div');
-//   const projectImg = document.createElement('img');
-//   console.log('project', project);
-//
-//   //Overlay
-//   overlay.id = 'overlay';
-//   body.appendChild(overlay);
-//
-//   //Close overlay on click
-//   overlay.addEventListener('click', function(event){
-//     if (event.target !== this) {
-//       return;
-//     }
-//     else {
-//       overlay.remove();
-//     }
-//   });
-//
-//   // Project Card
-//   projectCard.className = 'project-card';
-//   overlay.appendChild(projectCard);
-//
-//   //Project Image
-//   projectImg.className = 'project-image';
-//   console.log(project);
-//   projectImg.src = project.getElementsByClassName('project-image')[0].src;
-//   projectCard.appendChild(projectImg);
-//
-// }
-//
-//
-// addLinksToProjects();

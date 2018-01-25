@@ -26,6 +26,7 @@ h3 {
 
 h4 {
   color: #818181;
+  margin-bottom: .6em;
 }
 
 p {
@@ -126,10 +127,6 @@ main {
   max-width: 100%;
 }
 
-.project-description {
-  /* display: none; */
-}
-
 footer {
   background-color: #e0d8d1;
   width: 100%;
@@ -175,6 +172,37 @@ footer svg:hover {
   padding: 1em;
   background: white;
   border-radius: 8px;
+}
+
+.skills {
+  margin: 1em;
+}
+
+.skill {
+  font-size: small;
+  border-radius: 20px;
+  background-color: #68CACE;
+  color: white;
+  margin: 0em .2em 1em .2em;
+  padding: .5em;
+}
+
+.close-button,
+.browse-button {
+  margin: 0;
+  text-align: right;
+  opacity: 0.8;
+  transition: all 200ms;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  color: $darkGrey;
+  cursor: pointer;
+  height: .1em;
+}
+
+.browse-button {
+  margin: .5em;
 }
 
 /* TABLET SIZE */
