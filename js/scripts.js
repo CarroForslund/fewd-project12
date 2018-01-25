@@ -1,4 +1,4 @@
-'use strict'
+/*jshint esversion: 6 */
 
 const about = `
   <h2>
@@ -127,7 +127,7 @@ const projects = [
       "skills"      : ["JavaScript", "ReactJS", "React Router 4", "JSX", "npm", "axios"],
       "description" : "In this project, I built an image gallery using React and the Flickr API. After creating the project with create-react-app, I did build the gallery components, wrote the CSS and did set up routing.",
       "source"      : "https://github.com/CarroForslund/fewd-project11",
-      "image"       : "",
+      "image"       : "img/portfolio/react-flickr-gallery.jpg",
       "demo"        : ""
     },
     {
@@ -176,21 +176,21 @@ const projects = [
       "demo"        : ""
     },
     {
-      "name"        : "Carnaby Wines Logo",
-      "tag"         : "design",
-      "skills"      : ["Sketch", "Idea", "Vector Graphics"],
-      "description" : "Logo for a wine importing business.",
-      "source"      : "",
-      "image"       : "img/portfolio/carnaby-wines-logo.jpg",
-      "demo"        : ""
-    },
-    {
       "name"        : "CaLi Logo",
       "tag"         : "design",
       "skills"      : ["Sketch", "Idea", "Vector Graphics"],
       "description" : "Logo for a trucker company.",
       "source"      : "",
       "image"       : "img/portfolio/cali-logo.jpg",
+      "demo"        : ""
+    },
+    {
+      "name"        : "Carnaby Wines Logo",
+      "tag"         : "design",
+      "skills"      : ["Sketch", "Idea", "Vector Graphics"],
+      "description" : "Logo for a wine importing business.",
+      "source"      : "",
+      "image"       : "img/portfolio/carnaby-wines-logo.jpg",
       "demo"        : ""
     }
 ];
@@ -216,6 +216,7 @@ const contact = `
 const aboutLink = document.getElementById('nav-about');
 const portfolioLink = document.getElementById('nav-portfolio');
 const contactLink = document.getElementById('nav-contact');
+const mainNav = document.getElementById('main-nav');
 const navLinks = [ aboutLink, portfolioLink, contactLink ];
 const main = document.getElementsByTagName('main')[0];
 const body = document.body;
@@ -234,22 +235,23 @@ function loadPage(){
 //Nav Links
 function createNavLinks(){
 
-  for (let i = 0; i < navLinks.length; i++){
-    navLinks[i].addEventListener('click', function(e){
-      e.preventDefault();
+  mainNav.addEventListener('click', (event) =>{
+    event.preventDefault();
+    if(event.target.tagName === 'A'){
+      event.preventDefault();
 
       navLinks.forEach(function(link){
         link.classList.remove('current');
       });
 
-      this.classList.add('current');
+      event.target.className = 'current';
 
       while(main.firstChild){
         main.removeChild(main.firstChild);
       }
-      loadContent(navLinks[i].id);
-    });
-  }
+      loadContent(event.target.id);
+    }
+  });
 }
 
 //Load page content for each page
@@ -292,36 +294,37 @@ function loadContent(clickedLink){
     filterSection.appendChild(filterDesign);
 
     const filters = document.getElementsByClassName('filter');
-    for (let i = 0; i < filters.length; i++){
 
-      //Set active filter
-      filters[i].addEventListener('click', function(){
-        for (let j = 0; j < filters.length; j++){
-          filters[j].classList.remove('filter-active');
+    //Set active filter
+    filterSection.addEventListener('click', (event) =>{
+      if(event.target.classList.contains('filter')){
+        for (let i = 0; i < filters.length; i++){
+          filters[i].classList.remove('filter-active');
         }
-        filters[i].classList.add('filter-active');
+        event.target.classList.add('filter-active');
 
         //Display projects matching the chosen filter
         const projectDivs = document.getElementsByClassName('project');
-        console.log('filter', filters[i].id);
         for (let k = 0; k < projectDivs.length; k++){
-          console.log('projectDiv', projectDivs[k]);
 
-          if (filters[i].id === 'filter-all'){
+          if (event.target.id === 'filter-all'){
             projectDivs[k].setAttribute('style', 'display: block');
           }
-          else if (projectDivs[k].classList.contains('web-project') && filters[i].id === 'filter-web'){
+          else if (projectDivs[k].classList.contains('web-project') && event.target.id === 'filter-web'){
             projectDivs[k].setAttribute('style', 'display: block');
           }
-          else if (projectDivs[k].classList.contains('design-project') && filters[i].id === 'filter-design'){
+          else if (projectDivs[k].classList.contains('design-project') && event.target.id === 'filter-design'){
             projectDivs[k].setAttribute('style', 'display: block');
           } else {
             projectDivs[k].setAttribute('style', 'display: none');
           }
         }
+      }
+    });
 
-      });
-    }
+    const projectContainer = document.createElement('div');
+    projectContainer.className = 'project-container';
+    main.appendChild(projectContainer);
 
     projects.forEach( function (project){
 
@@ -381,7 +384,7 @@ function loadContent(clickedLink){
         projectCard.appendChild(skills);
         for (let i = 0; i < project.skills.length; i++){
           const skill = document.createElement('span');
-          skill.className = 'skill'
+          skill.className = 'skill';
           skill.innerHTML = project.skills[i];
           skills.appendChild(skill);
         }
@@ -422,7 +425,7 @@ function loadContent(clickedLink){
       projectImage.className = "project-image";
       projectDiv.appendChild(projectImage);
 
-      main.appendChild(projectDiv);
+      projectContainer.appendChild(projectDiv);
     });
   }
   else {
