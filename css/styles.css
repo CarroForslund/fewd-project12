@@ -125,6 +125,7 @@ main {
 
 .project-image {
   max-width: 100%;
+  margin: .5em 0;
 }
 
 footer {
