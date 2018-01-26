@@ -111,7 +111,8 @@ main {
   padding: .5em;
 }
 
-.filter-active {
+.filter-active,
+.filter:hover {
   background-color: #F45E73;
 }
 
@@ -187,6 +188,21 @@ footer svg:hover {
   color: white;
   margin: 0em .2em 1em .2em;
   padding: .5em;
+}
+
+.show-project {
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 20px;
+  width: 80px;
+  background-color: #E0BDD5;
+  color: white;
+  margin: 0em .2em 1em .2em;
+  padding: .5em;
+}
+
+.show-project:hover {
+  background-color: #CE68AF;
 }
 
 .close-button,

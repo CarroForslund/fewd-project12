@@ -331,6 +331,7 @@ function loadContent(clickedLink){
       const projectDiv = document.createElement('div');
 
       projectDiv.className = "project";
+
       if (project.tag ===  "web"){
         projectDiv.classList.add('web-project');
       }
@@ -400,6 +401,28 @@ function loadContent(clickedLink){
         const description = document.createElement('p');
         description.innerHTML = project.description;
         projectDescription.appendChild(description);
+
+        if (project.tag ===  "web"){
+
+          const source = document.createElement('a');
+          source.className = 'show-project';
+          source.href = project.source;
+          source.target = '_blank';
+          source.innerHTML = 'Code &rarr;';
+          projectCard.appendChild(source);
+
+          if (project.demo !== ""){
+            const demo = document.createElement('a');
+            demo.className = 'show-project';
+            demo.href = project.demo;
+            demo.target = '_blank';
+            demo.innerHTML = 'Demo &rarr;';
+            projectCard.appendChild(demo);
+          }
+
+        }
+
+
 
         // //Create back and forvard buttons
         // const previous = document.createElement('span');
