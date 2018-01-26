@@ -147,6 +147,8 @@ footer svg:hover {
   fill: #F45E73;
 }
 
+/* Display project details */
+
 #overlay {
   position: fixed;
 	top: 0;
