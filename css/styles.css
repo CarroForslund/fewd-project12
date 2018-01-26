@@ -231,7 +231,7 @@ footer svg:hover {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-end;
   }
 
   .project {
